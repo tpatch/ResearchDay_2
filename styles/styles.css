@@ -1,5 +1,74 @@
 @charset "utf-8";
 
+/** FONTS! **/
+@font-face {
+    font-family: 'QuicksandBookObliqueRegular';
+    src: url('fonts/quicksand_book_oblique-webfont.eot');
+    src: url('fonts/quicksand_book_oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/quicksand_book_oblique-webfont.woff') format('woff'),
+         url('fonts/quicksand_book_oblique-webfont.ttf') format('truetype'),
+         url('fonts/quicksand_book_oblique-webfont.svg#QuicksandBookObliqueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'QuicksandBookRegular';
+    src: url('fonts/quicksand_book-webfont.eot');
+    src: url('fonts/quicksand_book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/quicksand_book-webfont.woff') format('woff'),
+         url('fonts/quicksand_book-webfont.ttf') format('truetype'),
+         url('fonts/quicksand_book-webfont.svg#QuicksandBookRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'QuicksandLightRegular';
+    src: url('fonts/quicksand_light-webfont.eot');
+    src: url('fonts/quicksand_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/quicksand_light-webfont.woff') format('woff'),
+         url('fonts/quicksand_light-webfont.ttf') format('truetype'),
+         url('fonts/quicksand_light-webfont.svg#QuicksandLightRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'QuicksandLightObliqueRegular';
+    src: url('fonts/quicksand_light_oblique-webfont.eot');
+    src: url('fonts/quicksand_light_oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/quicksand_light_oblique-webfont.woff') format('woff'),
+         url('fonts/quicksand_light_oblique-webfont.ttf') format('truetype'),
+         url('fonts/quicksand_light_oblique-webfont.svg#QuicksandLightObliqueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'QuicksandBoldRegular';
+    src: url('fonts/quicksand_bold-webfont.eot');
+    src: url('fonts/fonts/quicksand_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/quicksand_bold-webfont.woff') format('woff'),
+         url('fonts/quicksand_bold-webfont.ttf') format('truetype'),
+         url('fonts/quicksand_bold-webfont.svg#QuicksandBoldRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'QuicksandBoldObliqueRegular';
+    src: url('fonts/quicksand_bold_oblique-webfont.eot');
+    src: url('fonts/quicksand_bold_oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/quicksand_bold_oblique-webfont.woff') format('woff'),
+         url('fonts/quicksand_bold_oblique-webfont.ttf') format('truetype'),
+         url('fonts/quicksand_bold_oblique-webfont.svg#QuicksandBoldObliqueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 /* http://meyerweb.com/eric/tools/css/reset/ */
 /* v1.0 | 20080212 */
 html, body, div, span, applet, object, iframe,
@@ -12,7 +81,8 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td
 	{ margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
-body { line-height: 1; margin:0; }
+html, body { width:100%; height:100%; margin:0; padding:0; min-height:100%; }
+body { line-height: 1; }
 ol, ul { list-style: none; }
 blockquote, q { quotes: none; }
 blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
@@ -26,6 +96,20 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 
 /** Setup & Helpers **/
+h1,h2,h3,h4,h5,h6 { font-family:'QuicksandBookRegular'; }
+h1 { font-size:4em; }
+h2 { font-size:2.2em; }
+h3 { font-size:1.8em; }
+h4 { font-size:1.6em; }
+h5 { font-size:1.4em; }
+h6 { font-size:1.2em; }
+
+a { color:#0776A0; text-decoration:none; }
+a:active { color:#0776A0; }
+a:hover { color:#A65600; text-decoration:underline; }
+a:visited { color:#A65600; }
+
+
 .alignleft { float: left; }
 .alignright { float: right; }
 .aligncenter { margin: 0 auto; }
@@ -46,9 +130,10 @@ img.alignright { margin-left: 8px; margin-bottom: 8px; }
 
 
 
-/** Layout **/
-/** position, top, left, right, bottom, z-index, float, display, width, height, padding, margin, border, outline, list-style (type, position, image), overflow, vertical-align **/
+/** Main Styles **/
+body { background:#DDD; background:url(img/vintage_speckles.png) left top repeat; font:normal 1em 'QuicksandBookRegular'; color:#194556; }
 #page { width:90%; max-width:768px; margin:0 auto; }
+
 a img { border: none; }
 abbr { cursor: pointer; }
 sup { position: relative; top: -0.5em; }
@@ -69,31 +154,45 @@ sub { position: relative; top: 0.5em; }
 #main p { padding-bottom: 1.0em; }
 #main blockquote { width: 70%; padding-bottom: 1.0em; margin: 0 auto; }
 
-.init { margin:30% 0 0 0; }
-input#tweets,
-input#pic { width:45%; float:left; margin:0; }
-input#pic { margin:0 0 0 5%;}
-input#submit { width:60%; margin:8px auto 0 auto; display:block; }
-
-.theart { position:relative; width:100%; }
-.theart .quotecont { width:80%; margin:0 auto; position:relative; z-index:200; }
-.theart .mainphoto { width:80%; height:auto; margin:0 auto 0 10%; position:absolute; top:0; z-index:100; }
-
-
-
-
-/** Colors & Typography **/
-/** color, background (color, image, repeat, attachment, position), font (style, variant, weight, size, family), line-height, text (indent, align, decoration, transform), letter-spacing, word-spacing, white-space, cursor **/
-body { background:#DDD; background:url(img/vintage_speckles.png) left top repeat; }
 sup { font-size: 0.8em; }
 sub { font-size: 0.8em; }
 
-#main h1, #main h2, #main h3 { font-size: 1.76em; }
-#main h4 { font-size: 1.5em; }
-#main h5 { font-size: 1.3em; }
-#main h6 { font-size: 1.1em; }
+.init { margin:10% 0 0 0; }
+.init h1 { font-family:'QuicksandBookObliqueRegular'; text-shadow:2px 2px 0 #ff8400; letter-spacing:-.05em; }
+.init > p { margin:0 0 0 5px; }
 
-input#submit { border:none; background:azure; }
+.form { margin:60px auto 0 auto; padding:40px 40px 30px 40px; border-radius:12px; background:rgba(25,69,86,.3); overflow:hidden; }
+form ul { overflow:hidden; }
+form ul li { float:left; width:45%; }
+form ul li:first-child { margin:0 10% 0 0; }
+li label { display:block; color:#111; }
+input#tweets,input#pic { width:97%; margin:0; padding:10px 4px; font-family:'QuicksandBoldObliqueRegular'; font-size:1.2em; color:#0776A0; }
+input#submit { 
+	width:20%;
+	position:relative; 
+	display:block; 
+	padding:14px 0; 
+	margin:20px auto;
+	float:right;
+	border:none; 
+	border-radius:6px; 
+	background:#0776A0; 
+	color:#FFF;
+	text-shadow:1px 0 0 #000;
+	font-family:'QuicksandLightRegular'; 
+	font-size:1.8em; 
+	text-transform:uppercase;
+	cursor:pointer;
+	box-shadow:2px 2px 3px #999;
+}
+input#submit:hover { left:1px; top:1px; box-shadow:1px 1px 2px #555; }
+
+.theart { position:relative; min-height:400px; width:100%; }
+.theart .quotecont { width:80%; margin:0 auto; position:relative; z-index:200; }
+.theart .mainphoto { width:80%; height:auto; margin:0 auto 0 10%; position:absolute; top:0; z-index:100; }
+
+footer { margin:200px auto 50px auto; width:100%; }
+
 
 
 

@@ -4,9 +4,13 @@
 
 <cfhttp url="#search#" result="tweets"></cfhttp>
 
-<cfset fileWrite("#dir#data.json", "#tweets.filecontent#") />
+<cfif NOT directoryExists(session.myUploadDir)>
+	<cfdirectory action="create" directory="#session.myUploadDir#" />
+</cfif>
 
-<cfset theJSON = deserializeJSON(fileRead("#dir#data.json"), false)>
+<cfset fileWrite("#session.myUploadDir#/data.json", "#tweets.filecontent#") />
+
+<cfset theJSON = deserializeJSON(fileRead("#session.myUploadDir#/data.json"), false)>
 <cfset results = #theJSON.results#>
 
 <!--- Begin Flickr call --->
