@@ -25,11 +25,11 @@
 						<ul>
 							<li>
 								<label for="tweets">Find a Tweet</label>
-								<cfinput type="text" name="tweets" value="Sucka" size="30">
+								<cfinput type="text" name="tweets" value="Cray Cray" size="30">
 							</li>
 							<li>
 								<label for="pic">Find a Photo</label>
-								<cfinput type="text" value="tranquility" name="pic" size="30">
+								<cfinput type="text" value="Beautiful Sunset" name="pic" size="30">
 							</li>
 						</ul>
 
