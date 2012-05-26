@@ -161,7 +161,7 @@ sub { font-size: 0.8em; }
 .init h1 { font-family:'QuicksandBookObliqueRegular'; text-shadow:2px 2px 0 #ff8400; letter-spacing:-.05em; }
 .init > p { margin:0 0 0 5px; }
 
-.form { margin:60px auto 0 auto; padding:40px 40px 30px 40px; border-radius:12px; background:rgba(25,69,86,.3); overflow:hidden; }
+.form { margin:60px auto 0 auto; padding:40px 40px 30px 40px; border-radius:12px; background:rgba(25,69,86,.2); overflow:hidden; }
 form ul { overflow:hidden; }
 form ul li { float:left; width:45%; }
 form ul li:first-child { margin:0 10% 0 0; }
@@ -188,20 +188,24 @@ input#submit {
 }
 input#submit:hover { left:1px; top:1px; box-shadow:1px 1px 2px #555; }
 
-.theart { position:relative; min-height:400px; width:100%; }
+.theart { position:relative; width:100%; min-height:100%; margin:40px 0 0 0; }
 .theart .quotecont { 
-	width:70%; 
-	margin:0 auto 0 10%; 
-	position:relative; 
+	width:67%; 
+	margin:0 auto 0 16%; 
+	position:absolute; 
 	z-index:200;
-	top:70px;
-	left:50px;
+	top:100px;
+    background: rgba(0, 0, 0, .15);
+    padding: 12px;
+    overflow:hidden;
+    text-shadow:0 0 8px #000;
+    color:#FFF;
 }
-.theart .thetweet { font:normal 2em 'QuicksandBookRegular'; color:#FFF; text-shadow:0 0 8px #000; }
-.theart .tweeter { font:normal 1.9em 'QuicksandBookObliqueRegular'; color:#FFF; text-shadow:0 0 8px #000; }
-.theart .mainphoto { width:80%; height:auto; margin:0 auto 0 10%; position:absolute; top:0; z-index:100; }
+.theart .thetweet { font:normal 2em 'QuicksandBookRegular'; }
+.theart .tweeter { font:normal 1.9em 'QuicksandBookObliqueRegular'; float:right; }
+.theart .mainphoto { width:80%; height:auto; margin:0 auto 0 10%; position:relative; z-index:100; border: 12px solid #FFF; }
 
-footer { margin:200px auto 50px auto; width:100%; }
+footer { margin:100px auto 0 auto; padding:0 0 50px 0; width:100%; }
 
 
 

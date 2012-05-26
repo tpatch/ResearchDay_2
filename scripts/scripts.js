@@ -6,25 +6,18 @@
 
 	window.API = {
 		init: function () {
-			this.imagesize();
+			this.art();
 			this.formhandler();
+			this.errorcheck();
 		},
 
-		imagesize: function () {
-			var artHeight = $(".mainphoto").height();
-			console.log(artHeight);
+		art: function () {
+			$(".mainphoto").load(function(){
+					var artHeight = $(".mainphoto").height();
 
-			$("#submit").click(function(){
-				if($(".mainphoto")){
-					artHeight = $(".mainphoto").height();
-					console.log(artHeight);
-
-					$(".theart").css('height', artHeight);
-				}
-				else{
-					$("#submit").trigger('click');
-				}
-			});
+					$('.theart')
+						.css('height', artHeight)
+				}).fadeIn();
 		},
 
 		formhandler: function() {
@@ -53,7 +46,24 @@
 					});
 			};
 
+			$("#tweets").focus(function(){
+				$(".form").css('background-color', 'rgba(25,69,86,.3)');
+			});
+
+		},
+
+		errorcheck: function(){
+			var tweet = $("#tweets"),
+				pic = $("#pic");
+
+			$("#submit").click(function(){
+				if( !tweet.val() || !pic.val() ){
+					alert('Please fill in both search fields.');
+					return false;
+				}
+			});
 		}
+
 	};
 
 	$(window.document).ready(function () {

@@ -13,7 +13,11 @@
 	<body>
 		<div id="page">
 			<cfif IsDefined("form.submit")>
-				<cfinclude template="com/twitter.cfm" />
+				<cfif Len(form.tweets) AND Len(form.pic)>
+					<cfinclude template="com/twitter.cfm" />
+				<cfelse>
+					<p class="error">Please enter a search term in both fields.</p>
+				</cfif>
 			</cfif>
 
 			<div class="init">

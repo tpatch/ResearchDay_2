@@ -33,6 +33,7 @@
 	<cfoutput>#theXML.rsp.photos.photo.XmlAttributes.id#</cfoutput>
 	<cfabort />
 	--->
+	
 	<cfset rand = #RandRange(1,10)#>
 	<cfset photosrc = "http://farm" & #theXML.rsp.photos.photo[rand].XmlAttributes.farm# & ".staticflickr.com/" & #theXML.rsp.photos.photo[rand].XmlAttributes.server# & "/" & #theXML.rsp.photos.photo[rand].XmlAttributes.id# & "_" & #theXML.rsp.photos.photo[rand].XmlAttributes.secret# & ".jpg">
 <cfelse>
