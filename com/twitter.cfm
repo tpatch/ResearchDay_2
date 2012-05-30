@@ -45,7 +45,7 @@
 		<div class="quotecont">
 			<p class="thetweet">"#results[1].text#"</p>
 			<p class="tweeter">- #results[1].from_user#</p>
-			<p class="date"><a href="http://twitter.com/#results[1].from_user#/status/#PrecisionEvaluate(results[1].id_str)#" target="_blank">#DateFormat(results[1].created_at, "dd mmm yy")#</a></p>
+			<p class="date"><a href="http://twitter.com/#results[1].from_user#/status/#PrecisionEvaluate(results[1].id_str)#" target="_blank">#DateFormat(results[1].created_at, "mmm dd, yyyy")#</a></p>
 		</div>
 		<img src="#photosrc#" class="mainphoto" />
 	</div>
