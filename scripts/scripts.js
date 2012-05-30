@@ -17,7 +17,7 @@
 
 					$('.theart')
 						.css('height', artHeight)
-				}).fadeIn();
+				});
 		},
 
 		formhandler: function() {
@@ -46,8 +46,15 @@
 					});
 			};
 
-			$("#tweets").focus(function(){
-				$(".form").css('background-color', 'rgba(25,69,86,.3)');
+			$(".form input").focus(function(){
+				$(".form")
+					.css('background-color', 'rgba(25,69,86,.3)')
+					.css('box-shadow', '2px 2px 6px #999');
+			});
+			$(".form input").blur(function(){
+				$(".form")
+					.css('background-color', 'rgba(25,69,86,.2)')
+					.css('box-shadow', 'none');
 			});
 
 		},
