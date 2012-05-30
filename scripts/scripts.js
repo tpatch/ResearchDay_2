@@ -24,8 +24,8 @@
 		},
 
 		formhandler: function() {
-			var tweetOrig = "#50ThingsIHate",
-				picOrig = "Starry Night",
+			var tweetOrig = "Try a trending topic",
+				picOrig = "Search for something beautiful",
 				tweetVal = $("#tweets").val(),
 				picVal = $("#pic").val();
 
@@ -58,12 +58,6 @@
 				$(".form")
 					.css('background-color', 'rgba(25,69,86,.2)')
 					.css('box-shadow', 'none');
-				if($('#tweets').val() === ''){
-					$('#tweets').val('Try a trending topic').css('color', '#acacac');
-				}
-				if($('#pic').val() === ''){
-					$('#pic').val('Search something Beautiful').css('color', '#acacac');
-				}
 			});
 		},
 
@@ -72,7 +66,7 @@
 				pic = $("#pic");
 
 			$("#submit").click(function(){
-				if( !tweet.val() || !pic.val() ){
+				if( !tweet.val() || tweet.val() === "Try a trending topic" || !pic.val() || pic.val() === "Search somthing Beautiful" ){
 					alert('Please fill in both search fields.');
 					return false;
 				}

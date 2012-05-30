@@ -11,6 +11,9 @@
 		<link rel="stylesheet" href="styles/styles.css" media="all">
 	</head>
 	<body>
+		<cfparam name="yourTweet" default="Try a trending topic">
+		<cfparam name="yourPic" default="Search for something beautiful">
+
 		<div id="page">
 			<cfif IsDefined("form.submit")>
 				<cfif Len(form.tweets) AND Len(form.pic)>
@@ -18,6 +21,9 @@
 				<cfelse>
 					<p class="error">Please enter a search term in both fields.</p>
 				</cfif>
+
+				<cfset yourTweet = form.tweets>
+				<cfset yourPic = form.pic>
 			</cfif>
 
 			<div class="init">
@@ -29,11 +35,11 @@
 						<ul>
 							<li>
 								<label for="tweets">Find a Tweet</label>
-								<cfinput type="text" name="tweets" value="##50ThingsIHate" size="30">
+								<cfinput type="text" name="tweets" value="#yourTweet#" size="30">
 							</li>
 							<li>
 								<label for="pic">Find a Photo</label>
-								<cfinput type="text" value="Starry Night" name="pic" size="30">
+								<cfinput type="text" value="#yourPic#" name="pic" size="30">
 							</li>
 						</ul>
 
