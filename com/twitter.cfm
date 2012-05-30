@@ -1,6 +1,5 @@
 <!--- Begin Twitter call --->
 <cfset search = "http://search.twitter.com/search.json?q=" & #URLEncodedFormat(form.tweets)# & "&rpp=1" />
-<cfset dir = getDirectoryFromPath(getCurrentTemplatePath()) >
 
 <cfhttp url="#search#" result="tweets"></cfhttp>
 
