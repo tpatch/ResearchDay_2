@@ -46,17 +46,6 @@
 
 }
 @font-face {
-    font-family: 'QuicksandBoldRegular';
-    src: url('fonts/quicksand_bold-webfont.eot');
-    src: url('fonts/fonts/quicksand_bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/quicksand_bold-webfont.woff') format('woff'),
-         url('fonts/quicksand_bold-webfont.ttf') format('truetype'),
-         url('fonts/quicksand_bold-webfont.svg#QuicksandBoldRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
     font-family: 'QuicksandBoldObliqueRegular';
     src: url('fonts/quicksand_bold_oblique-webfont.eot');
     src: url('fonts/quicksand_bold_oblique-webfont.eot?#iefix') format('embedded-opentype'),
@@ -81,7 +70,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td
 	{ margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
-html, body { width:100%; height:100%; margin:0; padding:0; min-height:100%; }
+html, body { width:100%; margin:0; padding:0; }
 body { line-height: 1; }
 ol, ul { list-style: none; }
 blockquote, q { quotes: none; }
@@ -131,7 +120,14 @@ img.alignright { margin-left: 8px; margin-bottom: 8px; }
 
 
 /** Main Styles **/
-body { background:#DDD; background:url(img/vintage_speckles.png) left top repeat; font:normal 1em 'QuicksandBookRegular'; color:#194556; }
+body { 
+    background:#DDD url(img/vintage_speckles.png) left top repeat; 
+    font:normal 1em 'QuicksandBookRegular'; color:#194556; 
+    -webkit-transition:font-size 2s; 
+    -moz-transition:font-size 2s; 
+    -o-transition:font-size 2s; 
+    transition:font-size 2s; 
+}
 #page { width:90%; max-width:768px; margin:0 auto; }
 
 a img { border: none; }
@@ -161,13 +157,20 @@ sub { font-size: 0.8em; }
 .init h1 { font-family:'QuicksandBookObliqueRegular'; text-shadow:2px 2px 0 #ff8400; letter-spacing:-.05em; }
 .init > p { margin:0 0 0 5px; }
 
-.form { margin:60px auto 0 auto; padding:40px 40px 30px 40px; border-radius:12px; background:rgba(25,69,86,.2); overflow:hidden; }
+.form { 
+    margin:60px auto 0 auto; 
+    padding:40px 40px 30px 40px; 
+    border-radius:12px; 
+    background:rgba(25,69,86,.2); 
+    overflow:hidden;
+    -webkit-transition:background-color .5s ease-in;
+}
 form ul { overflow:hidden; }
 form ul li { float:left; width:45%; }
 form ul li:first-child { margin:0 10% 0 0; }
 li label { display:block; color:#111; font-size:1.1em; }
-input#tweets,input#pic { width:97%; margin:0; padding:10px 4px; font-family:'QuicksandBoldObliqueRegular'; font-size:1.2em; color:#0776A0; border:1px solid #024C68; }
-input#tweets:focus, input#pic:focus { border:1px solid #FF8500; }
+input#tweets,input#pic { width:97%; margin:0; padding:10px 4px; font-family:'QuicksandBoldObliqueRegular'; font-size:1.2em; color:#0776A0; }
+input#tweets:focus, input#pic:focus {  }
 input#submit { 
 	width:20%;
 	position:relative; 
@@ -185,35 +188,64 @@ input#submit {
 	text-transform:uppercase;
 	cursor:pointer;
 	box-shadow:2px 2px 3px #999;
+    -webkit-transition:width 1s ease;
+    -moz-transition:width 1s ease;
+    -o-transition:width 1s ease;
+    transition:width 1s ease;
 }
 input#submit:hover { left:1px; top:1px; box-shadow:1px 1px 2px #555; }
 
-.theart { position:relative; width:100%; min-height:100%; margin:40px 0 0 0; }
+.theart { position:relative; width:100%; height:1000px; min-height:100%; margin:40px 0 0 0; }
 .theart .quotecont { 
 	width:67%; 
 	margin:0 auto 0 16%; 
 	position:absolute; 
 	z-index:200;
 	top:100px;
-    background: rgba(0, 0, 0, .15);
+    background: rgba(0, 0, 0, .2);
     padding: 12px;
     overflow:hidden;
-    text-shadow:0 0 8px #000;
+    text-shadow:2px 2px 2px #000;
     color:#FFF;
 }
 .theart .thetweet { font:normal 2em 'QuicksandBookRegular'; }
 .theart .tweeter { font:normal 1.9em 'QuicksandBookObliqueRegular'; float:right; }
 .theart .mainphoto { width:80%; height:auto; margin:0 auto 0 10%; position:relative; z-index:100; border: 12px solid #FFF; }
 
-footer { margin:100px auto 0 auto; padding:0 0 50px 0; width:100%; }
+footer { margin:100px auto 0 auto; padding:0 0 50px 0; width:100%; font-size:.9em; }
+footer .github { float:right; }
+
+.form input {
+    border:1px solid #024C68;
+    background:rgba(255,255,255,.3);
+    -webkit-transition:background-color .5s ease-in;
+    -mox-transition:background-color .5s ease-in;
+    -o-transition:background-color .5s ease-in;
+    transition:background-color .5s ease-in;
+}
+.form input:focus { background:rgba(255,255,255,.7); }
 
 
+@media only screen and (min-width:601px) and (max-width:1024px) {
+    body { font-size:.8em; }
+    .form { padding:40px 20px 30px 20px; }
+    form ul li:first-child { margin:0 9% 0 0; }
+    input#submit{
+        width:30%;
+    }
+    .theart .quotecont { top:50px; }
+}
 
 
-
-/** @media **/
-
-/** Print Styles
-@media print { }
- **/
+@media only screen and (max-width:600px) {
+    body{
+        font-size:.75em;
+    }
+    .form { padding:25px 10px 20px 10px; }
+    form ul li:first-child { margin:0 8% 0 0; }
+    input#submit{
+        width:40%;
+    }
+    .theart .quotecont { top:25px; }
+}
  

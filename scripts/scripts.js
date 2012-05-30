@@ -12,17 +12,20 @@
 		},
 
 		art: function () {
-			$(".mainphoto").load(function(){
-					var artHeight = $(".mainphoto").height();
+			$('.theart').hide();
 
+			$(".mainphoto").load(function(){
 					$('.theart')
-						.css('height', artHeight)
+						.slideDown(1000, function(){
+							var artHeight = $('.mainphoto').height();
+							$('.theart').height(artHeight);
+						});
 				});
 		},
 
 		formhandler: function() {
-			var tweetOrig = "Cray Cray",
-				picOrig = "Beautiful Sunset",
+			var tweetOrig = "#50ThingsIHate",
+				picOrig = "Starry Night",
 				tweetVal = $("#tweets").val(),
 				picVal = $("#pic").val();
 
@@ -55,8 +58,13 @@
 				$(".form")
 					.css('background-color', 'rgba(25,69,86,.2)')
 					.css('box-shadow', 'none');
+				if($('#tweets').val() === ''){
+					$('#tweets').val('Try a trending topic').css('color', '#acacac');
+				}
+				if($('#pic').val() === ''){
+					$('#pic').val('Search something Beautiful').css('color', '#acacac');
+				}
 			});
-
 		},
 
 		errorcheck: function(){

@@ -29,11 +29,11 @@
 						<ul>
 							<li>
 								<label for="tweets">Find a Tweet</label>
-								<cfinput type="text" name="tweets" value="Cray Cray" size="30">
+								<cfinput type="text" name="tweets" value="##50ThingsIHate" size="30">
 							</li>
 							<li>
 								<label for="pic">Find a Photo</label>
-								<cfinput type="text" value="Beautiful Sunset" name="pic" size="30">
+								<cfinput type="text" value="Starry Night" name="pic" size="30">
 							</li>
 						</ul>
 
@@ -42,7 +42,10 @@
 				</div>
 
 			</div>
-			<footer>Created by <a href="http://trevorpatch.com">Trevor Patch</a></footer>
+			<footer>
+				<span class="author">Created by <a href="http://trevorpatch.com">Trevor Patch</a></span>
+				<span class="github">View on <a href="https://github.com/tpatch/ResearchDay_2">Github</a></span>
+			</footer>
 		</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 	<script src="scripts/scripts.js"></script>
