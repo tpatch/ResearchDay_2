@@ -32,7 +32,7 @@
 	<cfoutput>#theXML.rsp.photos.photo.XmlAttributes.id#</cfoutput>
 	<cfabort />
 	--->
-	
+
 	<cfset rand = #RandRange(1,10)#>
 	<cfset photosrc = "http://farm" & #theXML.rsp.photos.photo[rand].XmlAttributes.farm# & ".staticflickr.com/" & #theXML.rsp.photos.photo[rand].XmlAttributes.server# & "/" & #theXML.rsp.photos.photo[rand].XmlAttributes.id# & "_" & #theXML.rsp.photos.photo[rand].XmlAttributes.secret# & ".jpg">
 <cfelse>
@@ -47,6 +47,9 @@
 			<p class="tweeter">- #results[1].from_user#</p>
 			<p class="date"><a href="http://twitter.com/#results[1].from_user#/status/#PrecisionEvaluate(results[1].id_str)#" target="_blank">#DateFormat(results[1].created_at, "mmm dd, yyyy")#</a></p>
 		</div>
-		<img src="#photosrc#" class="mainphoto" />
+		<div class="imgwrap">	
+			<img src="#photosrc#" class="mainphoto" />
+			<a href="http://flickr.com/photos/#theXML.rsp.photos.photo[rand].XmlAttributes.owner#/#theXML.rsp.photos.photo[rand].XmlAttributes.id#" target="_blank"><em>Source</em></a>
+		</div>
 	</div>
 </cfoutput>

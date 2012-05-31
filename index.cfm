@@ -24,6 +24,9 @@
 
 				<cfset yourTweet = form.tweets>
 				<cfset yourPic = form.pic>
+
+				<cfset arrayInsertAt(application.pastSearches[1],1,"#form.tweets#")>
+				<cfset arrayInsertAt(application.pastSearches[2],1,"#form.pic#")>
 			</cfif>
 
 			<div class="init">
@@ -47,6 +50,13 @@
 					</cfform>
 				</div>
 
+				<div class="recent">
+					<cfoutput>
+						<cfloop from="1" to="5" index="i">
+							<span>#application.pastSearches[1][i]# / #application.pastSearches[2][i]#</span>
+						</cfloop>
+					</cfoutput>
+				</div>
 			</div>
 			<footer>
 				<span class="author">Created by <a href="http://trevorpatch.com">Trevor Patch</a></span>

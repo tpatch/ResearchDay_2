@@ -93,6 +93,8 @@ h4 { font-size:1.6em; }
 h5 { font-size:1.4em; }
 h6 { font-size:1.2em; }
 
+::selection { background: #ffb7b7; }
+
 a { color:#0776A0; text-decoration:none; }
 a:active { color:#0776A0; }
 a:hover { color:#A65600; text-decoration:underline; }
@@ -165,9 +167,10 @@ sub { font-size: 0.8em; }
     overflow:hidden;
     -webkit-transition:background-color .5s ease-in;
 }
-form ul { overflow:hidden; }
+form ul { }
 form ul li { float:left; width:45%; }
 form ul li:first-child { margin:0 10% 0 0; }
+form ul li:last-child { float:right; }
 li label { display:block; color:#111; font-size:1.1em; }
 input#tweets,input#pic { width:97%; margin:0; padding:10px 4px; font-family:'QuicksandBoldObliqueRegular'; font-size:1.2em; color:#0776A0; }
 input#tweets:focus, input#pic:focus {  }
@@ -194,6 +197,18 @@ input#submit {
     transition:width 1s ease;
 }
 input#submit:hover { left:1px; top:1px; box-shadow:1px 1px 2px #555; }
+.recent { margin:8px 0 0 0; }
+.recent span { 
+    color:rgba(25, 69, 86,.6); 
+    padding:1px 2px;
+    border-radius:6px; 
+    cursor:pointer;
+    -webkit-transition:background .5s ease,color .5s ease; 
+    -moz-transition:background .5s ease,color .5s ease; 
+    -o-transition:background .5s ease,color .5s ease; 
+    transition:background .5s ease,color .5s ease; 
+}
+.recent span:hover { color:rgba(25, 69, 86,1); background:#FFBC73; }
 
 .theart { position:relative; width:100%; height:1000px; min-height:100%; margin:40px 0 0 0; }
 .theart .quotecont { 
@@ -211,8 +226,24 @@ input#submit:hover { left:1px; top:1px; box-shadow:1px 1px 2px #555; }
 .theart .thetweet { font:normal 2em 'QuicksandBookRegular'; }
 .theart .tweeter { font:normal 1.9em 'QuicksandBookObliqueRegular'; width:100%; text-align:right; }
 .theart .date { width:100%; text-align:right; font:normal .85em 'QuicksandBookObliqueRegular';  }
-.theart .date a { color:#FFF; text-decoration:none; }
+.theart .date a { color:rgba(255,255,255,.6); text-decoration:none;-webkit-transition:color 1s ease; -moz-transition:color 1s ease; -o-transition:color 1s ease; transition:color 1s ease; }
+.theart .date a:hover { color:rgba(255,255,255,1); }
+.theart .imgwrap { height:auto; position:relative; }
 .theart .mainphoto { width:80%; height:auto; margin:0 auto 0 10%; position:relative; z-index:100; border: 12px solid #FFF; }
+.theart .imgwrap a {
+    width:auto;
+    position:absolute;
+    left:16%;
+    bottom:25px;
+    z-index:200;
+    color:rgba(255,255,255,.6);
+    font-size:.85em;
+    -webkit-transition:color 1s ease;
+    -moz-transition:color 1s ease;
+    -o-transition:color 1s ease;
+    transition:color 1s ease;
+}
+.theart .imgwrap a:hover { text-decoration:none; color:rgba(255,255,255,1); }
 
 footer { margin:100px auto 0 auto; padding:0 0 50px 0; width:100%; font-size:.9em; }
 footer .github { float:right; }

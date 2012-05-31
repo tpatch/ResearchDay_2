@@ -1,19 +1,31 @@
 <cfcomponent output="false">
 
-	<cfsetting enablecfoutputonly="No" showdebugoutput="Yes">
+	<cfsetting enablecfoutputonly="No" showdebugoutput="no">
 	<cfset this.name = "Quotivational">
 	<cfset this.applicationTimeout = createTimeSpan(2,0,0,0)>
 	<cfset this.clientmanagement= "yes">
 	<cfset this.loginstorage = "session">
 	<cfset this.sessionmanagement = "yes">
-	<cfset this.sessiontimeout = createTimeSpan(0,0,5,0)>
+	<cfset this.sessiontimeout = createTimeSpan(0,1,0,0)>
 	<cfset this.setClientCookies = "yes">
 	<cfset this.setDomainCookies = "no">
 	<cfset this.scriptProtect = "all">
 	<cfset this.mappings["/Quotivational"] = expandpath("/com/") >
 
 	<cffunction name="onApplicationStart" access="public" returntype="boolean" output="false">
+		<cfset application.pastSearches = ArrayNew(2)>
+		<cfset application.pastSearches[1][1] = "">
+		<cfset application.pastSearches[2][1] = "">
+
 		<cfreturn true />
+	</cffunction>
+
+	<cffunction name="onRequestStart" returnType="boolean"> 
+		<cfif isDefined("url.reinit")>
+			<cfinvoke method="onApplicationStart">
+		</cfif>
+
+	    <cfreturn true /> 
 	</cffunction>
 
 	<cffunction name="onSessionStart" returntype="void" output="false">
