@@ -71,12 +71,6 @@
 					return false;
 				}
 			});
-		},
-
-		recent: function(){
-			$('.recent a').click(function(){
-				$('#userData').submit();
-			});		
 		}
 
 	};
