@@ -124,7 +124,8 @@ img.alignright { margin-left: 8px; margin-bottom: 8px; }
 /** Main Styles **/
 body { 
     background:#DDD url(img/vintage_speckles.png) left top repeat; 
-    font:normal 1em 'QuicksandBookRegular'; color:#194556; 
+    font:normal 1em 'QuicksandBookRegular'; 
+    color:#194556; 
     -webkit-transition:font-size 2s; 
     -moz-transition:font-size 2s; 
     -o-transition:font-size 2s; 
@@ -197,18 +198,29 @@ input#submit {
     transition:width 1s ease;
 }
 input#submit:hover { left:1px; top:1px; box-shadow:1px 1px 2px #555; }
-.recent { margin:8px 0 0 0; }
-.recent span { 
+.recent { margin:8px 0 0 0; overflow:hidden; position:relative; }
+.recent .head { 
+    float:left; 
+    text-align:right; 
+    margin:0 12px 0 0; 
+    color:rgba(191, 122, 48, .8); 
+    text-transform:uppercase; 
+    line-height:.9em; 
+}
+.recent .head h5 { letter-spacing:2px; font-family:'QuicksandBookRegular'; font-size:1.1em; }
+.recent .head h6 { letter-spacing:0; font-family:'QuicksandLightRegular'; font-size:1em; }
+.recent .recentwrap { display:inline-block; width:76%; }
+.recent span a { 
     color:rgba(25, 69, 86,.6); 
     padding:1px 2px;
-    border-radius:6px; 
+    border-radius:3px; 
     cursor:pointer;
     -webkit-transition:background .5s ease,color .5s ease; 
     -moz-transition:background .5s ease,color .5s ease; 
     -o-transition:background .5s ease,color .5s ease; 
     transition:background .5s ease,color .5s ease; 
 }
-.recent span:hover { color:rgba(25, 69, 86,1); background:#FFBC73; }
+.recent span a:hover { color:rgba(25, 69, 86,1); background:#FFBC73; }
 
 .theart { position:relative; width:100%; height:1000px; min-height:100%; margin:40px 0 0 0; }
 .theart .quotecont { 
@@ -245,7 +257,7 @@ input#submit:hover { left:1px; top:1px; box-shadow:1px 1px 2px #555; }
 }
 .theart .imgwrap a:hover { text-decoration:none; color:rgba(255,255,255,1); }
 
-footer { margin:100px auto 0 auto; padding:0 0 50px 0; width:100%; font-size:.9em; }
+footer { margin:100px auto 0 auto; padding:0 0 30px 0; width:100%; font-size:.9em; clear:both; }
 footer .github { float:right; }
 
 .form input {

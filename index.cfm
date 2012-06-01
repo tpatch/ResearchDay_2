@@ -1,3 +1,6 @@
+<cfparam name="yourTweet" default="Try a trending topic">
+<cfparam name="yourPic" default="Search for something beautiful">
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -11,9 +14,6 @@
 		<link rel="stylesheet" href="styles/styles.css" media="all">
 	</head>
 	<body>
-		<cfparam name="yourTweet" default="Try a trending topic">
-		<cfparam name="yourPic" default="Search for something beautiful">
-
 		<div id="page">
 			<cfif IsDefined("form.submit")>
 				<cfif Len(form.tweets) AND Len(form.pic)>
@@ -27,6 +27,10 @@
 
 				<cfset arrayInsertAt(application.pastSearches[1],1,"#form.tweets#")>
 				<cfset arrayInsertAt(application.pastSearches[2],1,"#form.pic#")>
+				<cfif len(application.pastSearches[1][6])>
+					<cfset arrayDeleteAt(application.pastSearches[1], 6)>
+					<cfset arrayDeleteAt(application.pastSearches[2], 6)>
+				</cfif>
 			</cfif>
 
 			<div class="init">
@@ -34,7 +38,7 @@
 				<p>Generate your own inspirational quote poster.</p>
 
 				<div class="form">
-					<cfform name="userData" action="#CGI.SCRIPT_NAME#">
+					<cfform name="userData" id="userData" action="#CGI.SCRIPT_NAME#">
 						<ul>
 							<li>
 								<label for="tweets">Find a Tweet</label>
@@ -51,11 +55,17 @@
 				</div>
 
 				<div class="recent">
-					<cfoutput>
-						<cfloop from="1" to="5" index="i">
-							<span>#application.pastSearches[1][i]# / #application.pastSearches[2][i]#</span>
-						</cfloop>
-					</cfoutput>
+					<div class="head">
+						<h5>Recent</h5>
+						<h6>Searches</h6>
+					</div>
+					<div class="recentwrap">
+						<cfoutput>
+							<cfloop from="1" to="5" index="i">
+								<span><a href="?tweets=#URLEncodedFormat(application.pastSearches[1][i])#&pic=#URLEncodedFormat(application.pastSearches[2][i])#">#application.pastSearches[1][i]# / #application.pastSearches[2][i]#</a></span>
+							</cfloop>
+						</cfoutput>
+					</div>
 				</div>
 			</div>
 			<footer>
