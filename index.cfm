@@ -60,11 +60,13 @@
 						<h6>Searches</h6>
 					</div>
 					<div class="recentwrap">
-						<cfoutput>
-							<cfloop from="1" to="5" index="i">
-								<span><a href="?tweets=#URLEncodedFormat(application.pastSearches[1][i])#&pic=#URLEncodedFormat(application.pastSearches[2][i])#">#application.pastSearches[1][i]# / #application.pastSearches[2][i]#</a></span>
-							</cfloop>
-						</cfoutput>
+						<cfif ArrayLen(application.pastSearches[1]) GT 4>
+							<cfoutput>
+								<cfloop from="1" to="5" index="i">
+									<span><a href="?tweets=#URLEncodedFormat(application.pastSearches[1][i])#&pic=#URLEncodedFormat(application.pastSearches[2][i])#">#application.pastSearches[1][i]# / #application.pastSearches[2][i]#</a></span>
+								</cfloop>
+							</cfoutput>
+						</cfif>
 					</div>
 				</div>
 			</div>
