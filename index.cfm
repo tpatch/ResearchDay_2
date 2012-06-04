@@ -1,11 +1,8 @@
-<cfparam name="yourTweet" default="Try a trending topic">
-<cfparam name="yourPic" default="Search for something beautiful">
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Quotivational</title>
+		<title>Quotivational | A web experiment by Trevor Patch</title>
 		
 		<meta name="description" content="Create a poster combining a tweet and photo based on your search terms.">
 		<meta name="keywords" content="quotivational,twitter,flickr,generator,creator">
@@ -15,45 +12,40 @@
 	</head>
 	<body>
 		<div id="page">
-			<cfif IsDefined("form.submit")>
-				<cfif Len(form.tweets) AND Len(form.pic)>
-					<cfinclude template="com/twitter.cfm" />
-				<cfelse>
-					<p class="error">Please enter a search term in both fields.</p>
-				</cfif>
-
-				<cfset yourTweet = form.tweets>
-				<cfset yourPic = form.pic>
-
-				<cfset arrayInsertAt(application.pastSearches[1],1,"#form.tweets#")>
-				<cfset arrayInsertAt(application.pastSearches[2],1,"#form.pic#")>
-				<cfif len(application.pastSearches[1][6])>
-					<cfset arrayDeleteAt(application.pastSearches[1], 6)>
-					<cfset arrayDeleteAt(application.pastSearches[2], 6)>
-				</cfif>
-			</cfif>
-
+			<cfinclude template="com/setup.cfm" />
+			
+			<!--- Page header --->
 			<div class="init">
 				<h1>Quotivational</h1>
-				<p>Generate your own inspirational quote poster.</p>
-
+				<p>Generate your own inspirational quote poster using a tweet and Flickr photo.</p>
+				
+				<!--- Our Form --->
 				<div class="form">
-					<cfform name="userData" id="userData" action="#CGI.SCRIPT_NAME#">
+					<cfform name="userData" id="userData" method="get">
 						<ul>
 							<li>
-								<label for="tweets">Find a Tweet</label>
-								<cfinput type="text" name="tweets" value="#yourTweet#" size="30">
+								<label for="tweets">Find a Tweet*</label>
+								<cfif Len(URLDecode(url.tweets))>
+									<cfinput type="text" name="tweets" value="#URLDecode(url.tweets)#" size="30">
+								<cfelse>
+									<cfinput type="text" name="tweets" value="#yourTweet#" size="30">
+								</cfif>
 							</li>
 							<li>
-								<label for="pic">Find a Photo</label>
-								<cfinput type="text" value="#yourPic#" name="pic" size="30">
+								<label for="pic">Find a Photo*</label>
+								<cfif Len(URLDecode(url.pic))>
+									<cfinput type="text" name="pic" value="#URLDecode(url.pic)#" size="30">
+								<cfelse>
+									<cfinput type="text" name="pic" value="#yourPic#" size="30">
+								</cfif>
 							</li>
 						</ul>
 
 						<cfinput type="submit" value="Create" name="submit" />
 					</cfform>
 				</div>
-
+				
+				<!--- Recent Search Terms --->
 				<div class="recent">
 					<div class="head">
 						<h5>Recent</h5>
@@ -63,13 +55,15 @@
 						<cfif ArrayLen(application.pastSearches[1]) GT 4>
 							<cfoutput>
 								<cfloop from="1" to="5" index="i">
-									<span><a href="?tweets=#URLEncodedFormat(application.pastSearches[1][i])#&pic=#URLEncodedFormat(application.pastSearches[2][i])#">#application.pastSearches[1][i]# / #application.pastSearches[2][i]#</a></span>
+									<span><a href="?tweets=#URLEncodedFormat(application.pastSearches[1][i])#&pic=#URLEncodedFormat(application.pastSearches[2][i])#&submit=1">#application.pastSearches[1][i]# / #application.pastSearches[2][i]#</a></span>
 								</cfloop>
 							</cfoutput>
 						</cfif>
 					</div>
 				</div>
 			</div>
+			
+			<!--- Footer --->
 			<footer>
 				<span class="author">Created by <a href="http://trevorpatch.com">Trevor Patch</a></span>
 				<span class="github">View on <a href="https://github.com/tpatch/ResearchDay_2">Github</a></span>

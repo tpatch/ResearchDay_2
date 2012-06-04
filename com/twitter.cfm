@@ -1,5 +1,5 @@
 <!--- Begin Twitter call --->
-<cfset search = "http://search.twitter.com/search.json?q=" & #URLEncodedFormat(form.tweets)# & "&rpp=5&lang=en" />
+<cfset search = "http://search.twitter.com/search.json?q=" & #URLEncodedFormat(url.tweets)# & "&rpp=5&lang=en" />
 <cfset randTweet = #RandRange(1,5)#>
 
 <cfhttp url="#search#" result="tweets"></cfhttp>
@@ -17,8 +17,8 @@
 <cfhttp url="http://www.flickr.com/services/rest/" result="photo">
 	<cfhttpparam type="url" name="api_key" value="f8c15e349d0a05ab4ba65f8701fb5caa"/>
 	<cfhttpparam type="url" name="method" value="flickr.photos.search"/>
-	<cfhttpparam type="url" name="text" value="#form.pic#"/>
-	<cfhttpparam type="url" name="tags" value="#form.pic#"/>
+	<cfhttpparam type="url" name="text" value="#url.pic#"/>
+	<cfhttpparam type="url" name="tags" value="#url.pic#"/>
 	<cfhttpparam type="url" name="sort" value="interestingness-desc" />
 	<cfhttpparam type="url" name="per_page" value="5"/>
 	<cfhttpparam type="url" name="page" value="1"/>
