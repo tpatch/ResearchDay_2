@@ -9,6 +9,7 @@
 		<meta name="robots" content="index, follow">
 		
 		<link rel="stylesheet" href="styles/styles.css" media="all">
+		<link rel="icon" type="image/ico" href="favicon.ico">
 	</head>
 	<body>
 		<div id="page">
