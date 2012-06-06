@@ -40,9 +40,8 @@
 
 		<!--- Delete dir --->
 		<cfif directoryExists(session.myUploadDir)>
-			<cfdirectory action="delete" directory="#session.myUploadDir#" recurse="yes" />
+			<cfdirectory action="delete" directory="#arguments.SessionScope.myUploadDir#" recurse="yes" />
 		</cfif>
-
 	</cffunction>
 
 	<cffunction name="onApplicationEnd" returnType="void">

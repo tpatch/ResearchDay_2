@@ -18,11 +18,11 @@
 	<cfhttpparam type="url" name="api_key" value="f8c15e349d0a05ab4ba65f8701fb5caa"/>
 	<cfhttpparam type="url" name="method" value="flickr.photos.search"/>
 	<cfhttpparam type="url" name="text" value="#url.pic#"/>
-	<cfhttpparam type="url" name="tags" value="#url.pic#"/>
 	<cfhttpparam type="url" name="sort" value="interestingness-desc" />
 	<cfhttpparam type="url" name="per_page" value="5"/>
 	<cfhttpparam type="url" name="page" value="1"/>
 	<cfhttpparam type="url" name="safe_search" value="2"/>
+	<cfhttpparam type="url" name="content_type" value="1"/>
 </cfhttp>
 
 <cfif photo.responseheader.status_code IS 200>
