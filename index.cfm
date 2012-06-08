@@ -12,13 +12,13 @@
 		<link rel="icon" type="image/ico" href="favicon.ico">
 	</head>
 	<body>
+		<cfinclude template="com/setup.cfm" />
 		<div id="page">
-			<cfinclude template="com/setup.cfm" />
 			
 			<!--- Page header --->
 			<div class="init">
 				<h1>Quotivational</h1>
-				<p>Generate your own inspirational quote poster using a tweet and Flickr photo.</p>
+				<p>The terribly-named website that creates inspirational quote posters using a tweet and Flickr photo.</p>
 				
 				<!--- Our Form --->
 				<div class="form">

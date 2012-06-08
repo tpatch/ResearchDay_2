@@ -1,5 +1,5 @@
 <!--- Begin Twitter call --->
-<cfset search = "http://search.twitter.com/search.json?q=" & #URLEncodedFormat(url.tweets)# & "&rpp=5&lang=en" />
+<cfset search = "http://search.twitter.com/search.json?q=" & #URLEncodedFormat(url.tweets)# & "&rpp=8&lang=en" />
 <cfset randTweet = #RandRange(1,5)#>
 
 <cfhttp url="#search#" result="tweets"></cfhttp>
@@ -42,15 +42,19 @@
 </cfif>
 
 <cfoutput>
-	<div class="theart">
-		<div class="quotecont">
-			<p class="thetweet">"#results[randTweet].text#"</p>
-			<p class="tweeter">- #results[randTweet].from_user#</p>
-			<p class="date"><a href="http://twitter.com/#results[randTweet].from_user#/status/#PrecisionEvaluate(results[randTweet].id_str)#" target="_blank">#DateFormat(results[randTweet].created_at, "mmm dd, yyyy")#</a></p>
+	<div class="wrapper">
+	<div class="quotational">
+		<div class="theart">
+			<div class="quotecont">
+				<p class="thetweet">"#results[randTweet].text#"</p>
+				<p class="tweeter">- #results[randTweet].from_user#</p>
+				<p class="date"><a href="http://twitter.com/#results[randTweet].from_user#/status/#PrecisionEvaluate(results[randTweet].id_str)#" target="_blank">#DateFormat(results[randTweet].created_at, "mmm dd, yyyy")#</a></p>
+			</div>
+			<div class="imgwrap">	
+				<img src="#photosrc#" class="mainphoto" />
+				<a href="http://flickr.com/photos/#theXML.rsp.photos.photo[rand].XmlAttributes.owner#/#theXML.rsp.photos.photo[rand].XmlAttributes.id#" target="_blank"><em>Source</em></a>
+			</div>
 		</div>
-		<div class="imgwrap">	
-			<img src="#photosrc#" class="mainphoto" />
-			<a href="http://flickr.com/photos/#theXML.rsp.photos.photo[rand].XmlAttributes.owner#/#theXML.rsp.photos.photo[rand].XmlAttributes.id#" target="_blank"><em>Source</em></a>
-		</div>
+	</div>
 	</div>
 </cfoutput>

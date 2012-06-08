@@ -158,10 +158,10 @@ sub { font-size: 0.8em; }
 
 .init { margin:10% 0 0 0; }
 .init h1 { font-family:'QuicksandBookObliqueRegular'; text-shadow:2px 2px 0 #ff8400; letter-spacing:-.05em; }
-.init > p { margin:0 0 0 5px; }
+.init > p { margin:0 0 0 5px; width:65%; }
 
 .form { 
-    margin:60px auto 0 auto; 
+    margin:45px auto 0 auto; 
     padding:40px 40px 30px 40px; 
     border-radius:12px; 
     background:rgba(25,69,86,.2); 
@@ -222,10 +222,12 @@ input#submit:hover { left:1px; top:1px; box-shadow:1px 1px 2px #555; }
 }
 .recent span a:hover { color:rgba(25, 69, 86,1); background:#FFBC73; }
 
-.theart { position:relative; width:100%; height:1000px; min-height:100%; margin:40px 0 0 0; }
+.wrapper { width:100%; padding:0; background: url(img/natural_paper.png) left top repeat; }
+.quotational { width:100%; padding:0; background: url(img/quotationalbtm.png) left bottom repeat-x; }
+.theart { position:relative; max-width:768px; width:100%; height:1000px; min-height:100%; padding:40px 0 95px 0; margin:0 auto; }
 .theart .quotecont { 
 	width:67%; 
-	margin:0 auto 0 16%; 
+	margin:25px auto 0 16%; 
 	position:absolute; 
 	z-index:200;
 	top:100px;
@@ -291,6 +293,6 @@ footer .github { float:right; }
     input#submit{
         width:40%;
     }
-    .theart .quotecont { top:25px; }
+    .theart .quotecont { margin:10px auto 0 16%;  }
 }
  
