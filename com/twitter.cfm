@@ -46,7 +46,7 @@
 	<div class="quotational">
 		<div class="theart">
 			<div class="quotecont">
-				<p class="thetweet">"#results[randTweet].text#"</p>
+				<p class="thetweet">&ldquo;#Replace(results[randTweet].text, Chr(10), "<br>", "all")#&rdquo;</p>
 				<p class="tweeter">- #results[randTweet].from_user#</p>
 				<p class="date"><a href="http://twitter.com/#results[randTweet].from_user#/status/#results[randTweet].id_str#" target="_blank">#DateFormat(ListFirst(results[randTweet].created_at, "+"), "mmm dd, yyyy")#</a></p>
 			</div>
