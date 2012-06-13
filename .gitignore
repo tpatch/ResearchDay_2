@@ -1,3 +1,5 @@
+com/data/*
+
 
 #################
 ## Eclipse
@@ -163,3 +165,6 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+# Hiding OpenBD
+WEB-INF
