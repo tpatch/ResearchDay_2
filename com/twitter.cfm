@@ -8,7 +8,7 @@
 	<cfdirectory action="create" directory="#session.myUploadDir#" />
 </cfif>
 
-<cfset fileWrite("#session.myUploadDir#/data.json", "#tweets.filecontent#") />
+<cffile action="write" file="#session.myUploadDir#/data.json" output="#tweets.filecontent#" />
 
 <cfset theJSON = deserializeJSON(fileRead("#session.myUploadDir#/data.json"), false)>
 <cfset results = #theJSON.results#>
@@ -46,9 +46,9 @@
 	<div class="quotational">
 		<div class="theart">
 			<div class="quotecont">
-				<p class="thetweet">"#results[randTweet].text#"</p>
+				<p class="thetweet">&ldquo;#Replace(results[randTweet].text, Chr(10), "<br>", "all")#&rdquo;</p>
 				<p class="tweeter">- #results[randTweet].from_user#</p>
-				<p class="date"><a href="http://twitter.com/#results[randTweet].from_user#/status/#PrecisionEvaluate(results[randTweet].id_str)#" target="_blank">#DateFormat(results[randTweet].created_at, "mmm dd, yyyy")#</a></p>
+				<p class="date"><a href="http://twitter.com/#results[randTweet].from_user#/status/#results[randTweet].id_str#" target="_blank">#DateFormat(ListFirst(results[randTweet].created_at, "+"), "mmm dd, yyyy")#</a></p>
 			</div>
 			<div class="imgwrap">	
 				<img src="#photosrc#" class="mainphoto" />
