@@ -8,7 +8,7 @@
 	<cfdirectory action="create" directory="#session.myUploadDir#" />
 </cfif>
 
-<cfset fileWrite("#session.myUploadDir#/data.json", "#tweets.filecontent#") />
+<cffile action="write" file="#session.myUploadDir#/data.json" output="#tweets.filecontent#" />
 
 <cfset theJSON = deserializeJSON(fileRead("#session.myUploadDir#/data.json"), false)>
 <cfset results = #theJSON.results#>
