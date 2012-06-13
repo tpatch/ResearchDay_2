@@ -1,6 +1,5 @@
 <!--- Begin Twitter call --->
 <cfset search = "http://search.twitter.com/search.json?q=" & #URLEncodedFormat(url.tweets)# & "&rpp=8&lang=en" />
-<cfset randTweet = #RandRange(1,5)#>
 
 <cfhttp url="#search#" result="tweets"></cfhttp>
 
@@ -12,6 +11,7 @@
 
 <cfset theJSON = deserializeJSON(fileRead("#session.myUploadDir#/data.json"), false)>
 <cfset results = #theJSON.results#>
+<cfset randTweet = #RandRange(1,ArrayLen(results))#>
 
 <!--- Begin Flickr call --->
 <cfhttp url="http://www.flickr.com/services/rest/" result="photo">
